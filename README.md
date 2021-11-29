@@ -10,3 +10,5 @@ Go into folder server_side
 Pip3 install flask_api, pyspark, flask_cors
 
 Then do “python3 run.py”
+
+If you cannot open demo after downloading it, check out docker the youtube link here https://www.youtube.com/watch?v=MM26ddFyUHk
