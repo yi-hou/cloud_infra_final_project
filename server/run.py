@@ -20,14 +20,14 @@ def search_term_fre():
     words_rdd = lines_rdd.flatMap(lambda x:x.split())
     key_value_rdd = words_rdd.map(lambda x: (x, 1))
     words_counts_rdd = key_value_rdd.reduceByKey(lambda x,y: x+y)
-    res = words_counts_rdd.filter(lambda x: x[0] == request_data['term']).map(lambda ki : ki[1])
-    flipped_rdd = words_counts_rdd.map(lambda x: (x[1], x[0]))
-    results_rdd = flipped_rdd.sortByKey(False)
-    freq = results_rdd.take(1)
-    # print("===freq===", freq)
-    # print("===freq fre===", freq[0][0])
+    list = words_counts_rdd.collectAsMap()
+    res = 0
+    if request_data['term'] not in list:
+        res = 0
+    else:
+        res = list[request_data['term']]
 
-    return str(freq[0][0])
+    return str(res)
 
 @app.route('/top', methods=['POST'])
 def find_top_n():
