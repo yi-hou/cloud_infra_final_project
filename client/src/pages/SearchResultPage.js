@@ -44,10 +44,7 @@ export const SearchResultPage = () => {
         },
     ];
     const rows = [
-        createData(1, 'histories', '1kinghenryiv', frequency),
-        createData(2, 'histories', '1kinghenryiv', frequency),
-        createData(3, 'histories', '2kinghenryiv', frequency),
-        createData(4, 'histories', '2kinghenryiv', frequency)
+        createData(1, 'histories', '1kinghenryiv', frequency)
     ];
 
     return (
